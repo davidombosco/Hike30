@@ -2,24 +2,39 @@
   <title>rede-hike</title>
 </head>
 
-<body>
-  <h1>Bem vindos à Hike!</h1>
-
-  {{> hello}}
-  {{> info}}
-</body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="Início">
+  <h1>Conecte-se com o mundo.</h1>
+  <p>Vejas fotos e status das pessoas que segue.</p>
+  <p>Compartilhe as novidades no seu perfil</p>
+  <p>Siga seus amigos e pessoas ao redor do mundo.</p>
+  <p><a href="#"> Link</a></p>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="Sobre">
+  <h1>Sobre</h1>
+  <h2>Nossa Visão</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nulla ipsum, blandit sed tincidunt sed, ultricies eu nisi. Ut imperdiet mattis arcu, eget gravida mauris accumsan in. Ut sagittis venenatis nisi vel pharetra.</p>
+  
+  <h2>Nossos Valores</h2>
+  <p>Ut viverra metus a tempor convallis. Ut sit amet libero convallis justo tristique laoreet. Duis ac iaculis neque. Duis porttitor tortor id malesuada accumsan. Nam sit amet nisi purus. Aenean id ornare dui. </p>
+</template>
+
+<template name="Contato">
+  <h1>Contato</h1>
+  <h2>Davi Dom Bosco</h2>
+  <p>(16) 99393-5825</p>
+  <p>davidombosco@hotmail.com</p>
+
+</template>
+
+<template name="Cabeçalho">
+  <a href="/">Início</a>
+  <a href="/Sobre">Sobre</a>
+  <a href="/Contato">Contato</a>
+
+</template>
+
+<template name="LayoutPrincipal">
+  {{> Cabeçalho}}
+  {{> Template.dynamic template=main}}
 </template>
