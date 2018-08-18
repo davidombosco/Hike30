@@ -17,6 +17,10 @@ Template.Post.helpers({  //things that help the template to display information
         else {
             return true;
         }
+    },
+    comentarios: function(){
+        var contariosDoPost = Comentarios.find({post: this._id}).fetch();
+        return contariosDoPost
     }
 });
 
