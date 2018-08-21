@@ -9,8 +9,20 @@ Template.Perfil.helpers({
         var idDoUsuario = FlowRouter.getParam("id");
         var postsDoPerfil = Posts.find({idDoAutor: idDoUsuario}).fetch();
         return postsDoPerfil;
+    },
+    segue: function() {
+        var idDoUsuario = FlowRouter.getParam("id");
+        var usuario = Meteor.users.findOne({_id: idDoUsuario});
+        var seguidores = usuario.profile.seguidores;
+
+        var posicao = seguidores.indexOf(Meteor.userId());
+        return posicao !== -1;
+    },
+    euMesmo: function() {
+        var idDoUsuario = FlowRouter.getParam("id");
+        return idDoUsuario === Meteor.userId();
+
     }
-    
 });
 
 Template.Perfil.events({
@@ -20,6 +32,8 @@ Template.Perfil.events({
         Meteor.call("seguirUsuario", idDoUsuario);
     },
 "click .deixar-de-seguir": function(evento, template) {
-       console.log("Deixando de seguir");
+        console.log("Deixando de seguir");
+        var idDoUsuario = FlowRouter.getParam("id");
+        Meteor.call("deixarDeSeguirUsuario", idDoUsuario);
     }
 })
