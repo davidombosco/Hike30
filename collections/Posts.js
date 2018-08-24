@@ -7,6 +7,7 @@ Meteor.methods({
                 texto: textoDoFormulario,
                 idDoAutor: Meteor.userId(),
                 curtidas: [],
+                imagem: urlDaImagem
             });
         }
     },
