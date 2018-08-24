@@ -18,17 +18,25 @@ Template.Post.helpers({  //things that help the template to display information
             return true;
         }
     },
-    comentarios: function(){
-        var contariosDoPost = Comentarios.find({post: this._id}).fetch();
-        return contariosDoPost;
+    comentarios: function() {
+        return Comentarios.find({post: this._id}).fetch();
+    },
+    eAutor: function() {
+        var idDoAutor = this.idDoAutor;
+        return idDoAutor === Meteor.userId();
     }
 });
 
 Template.Post.events({ //reaction to something the user made with the screen
     "click .like-button": function(evento, template) {
         Meteor.call("curtirPost", template.data._id);
-            },
+    },
     "click .unlike-button": function(evento, template) {
         Meteor.call("descurtirPost", template.data._id);
+    },
+    
+    "click .botao-remover": function(evento,template) {
+        Meteor.call("removerPost", template.data._id);
     }
+    
 });

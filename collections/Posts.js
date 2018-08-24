@@ -1,8 +1,8 @@
 Posts = new Mongo.Collection("posts");
 
 Meteor.methods({
-    "inserirPost": function(textoDoFormulario) {
-        if(Meteor.userId() !== null && textoDoFormulario) { //same as textoDoFormulario===true
+    "inserirPost": function(textoDoFormulario, urlDaImagem) {
+        if(Meteor.userId() !== null && textoDoFormulario) {
             Posts.insert({
                 texto: textoDoFormulario,
                 idDoAutor: Meteor.userId(),
@@ -24,6 +24,14 @@ Meteor.methods({
                 curtidas: Meteor.userId()
             }
         }); 
+    },
+    "removerPost": function(idDoPost) {
+        var post = Posts.findOne({_id: idDoPost});
+        var idDoAutor = post.idDoAutor;
+        
+        if (idDoAutor=== Meteor.userId()) {
+          Posts.remove(idDoPost);
+        }
     }
 });
 

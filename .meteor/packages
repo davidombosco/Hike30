@@ -28,3 +28,5 @@ useraccounts:flow-routing
 softwarerero:accounts-t9n
 sergeyt:typeahead
 cfs:standard-packages
+fortawesome:fontawesome
+cfs:gridfs
