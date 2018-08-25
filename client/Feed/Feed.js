@@ -1,8 +1,7 @@
 Template.Feed.onCreated(function() {
     Meteor.subscribe("posts");
+    Meteor.subscribe("usuarios");
 });
-
-Meteor.subscribe("usuarios");
 
 Template.Feed.helpers({
     posts: function() {

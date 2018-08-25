@@ -1,3 +1,5 @@
+Meteor.subscribe("posts");
+
 Template.Perfil.helpers({
     perfil: function() {
         var idDoUsuario = FlowRouter.getParam("id");
@@ -21,7 +23,6 @@ Template.Perfil.helpers({
     euMesmo: function() {
         var idDoUsuario = FlowRouter.getParam("id");
         return idDoUsuario === Meteor.userId();
-
     }
 });
 
